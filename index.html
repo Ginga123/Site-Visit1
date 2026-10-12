@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Site Visit Log</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj4KICA8cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgcng9IjM0IiBmaWxsPSIjMUMyMzIxIi8+CiAgPHJlY3QgeD0iMTAiIHk9IjEwIiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE2MCIgcng9IjI2IiBmaWxsPSIjRTg1OTBDIi8+CiAgPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iOSIgZmlsbD0iI0Y1RjJFQSIgb3BhY2l0eT0iMC44NSIvPgogIDx0ZXh0IHg9Ijk3IiB5PSIxMTgiIGZvbnQtZmFtaWx5PSJBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmIiBmb250LXNpemU9Ijc4IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjRjVGMkVBIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5QTjwvdGV4dD4KPC9zdmc+">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj4KICA8cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgcng9IjM0IiBmaWxsPSIjMUMyMzIxIi8+CiAgPHJlY3QgeD0iMTAiIHk9IjEwIiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE2MCIgcng9IjI2IiBmaWxsPSIjRTg1OTBDIi8+CiAgPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iOSIgZmlsbD0iI0Y1RjJFQSIgb3BhY2l0eT0iMC44NSIvPgogIDx0ZXh0IHg9Ijk3IiB5PSIxMTgiIGZvbnQtZmFtaWx5PSJBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmIiBmb250LXNpemU9Ijc4IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjRjVGMkVBIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5QTjwvdGV4dD4KPC9zdmc+">
+<meta name="theme-color" content="#1C2321">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Site Visit Log">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1C2321;
+    --paper:#E9EBE6;
+    --card:#FBFBF9;
+    --orange:#E8590C;
+    --orange-dark:#B8430A;
+    --ok:#2F6F4E;
+    --ok-bg:#E1EDE5;
+    --fail:#B3261E;
+    --fail-bg:#F5E1DF;
+    --steel:#3D5A73;
+    --line:#C7CCC4;
+    --muted:#6B7269;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans',sans-serif;
+    padding-bottom:88px;
+    -webkit-tap-highlight-color:transparent;
+  }
+  header{
+    position:sticky;top:0;z-index:20;
+    background:var(--ink);color:var(--paper);
+    padding:14px 16px;
+    display:flex;align-items:center;justify-content:space-between;
+    border-bottom:3px solid var(--orange);
+  }
+  header .title{
+    font-family:'Oswald',sans-serif;font-weight:600;
+    font-size:20px;letter-spacing:0.5px;text-transform:uppercase;
+  }
+  header .sub{font-size:11px;color:#B9C0B7;letter-spacing:1px;text-transform:uppercase;margin-top:2px;}
+  .wrap{max-width:520px;margin:0 auto;padding:14px;}
+  .tech-row{
+    display:flex;gap:8px;align-items:center;margin-bottom:14px;
+    background:var(--card);border:1px solid var(--line);border-radius:6px;padding:10px 12px;
+  }
+  .tech-row label{font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);white-space:nowrap;}
+  .tech-row input{flex:1;border:none;background:transparent;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;color:var(--ink);outline:none;}
+  .section-label{
+    font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--steel);margin:20px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--line);
+  }
+  .card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px;margin-bottom:10px;}
+  .field{margin-bottom:12px;}
+  .field:last-child{margin-bottom:0;}
+  .field label{display:block;font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;}
+  .field input[type=text]{
+    width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:6px;
+    font-size:16px;font-family:'IBM Plex Mono',monospace;background:#fff;color:var(--ink);
+  }
+  .field input[type=text]:focus{outline:2px solid var(--orange);border-color:var(--orange);}
+  .field textarea{
+    width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:6px;
+    font-size:15px;font-family:'IBM Plex Sans',sans-serif;background:#fff;color:var(--ink);
+    min-height:64px;resize:vertical;
+  }
+  .field textarea:focus{outline:2px solid var(--orange);border-color:var(--orange);}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    padding:9px 14px;border-radius:20px;border:1.5px solid var(--line);background:#fff;
+    font-size:13px;font-weight:500;color:var(--ink);cursor:pointer;user-select:none;
+    transition:background .12s,border-color .12s,color .12s;
+  }
+  .chip.on{background:var(--orange);border-color:var(--orange-dark);color:#fff;}
+  .chip.add{border-style:dashed;color:var(--muted);}
+  .chip.sm{padding:6px 11px;font-size:12px;background:#fff;border-color:var(--line);color:var(--steel);}
+  .chip.sm:active{background:var(--paper);}
+  .chip-hint{font-size:11px;color:var(--muted);width:100%;margin-bottom:2px;}
+  .locked-notice{
+    margin-top:10px;padding:9px 11px;border-radius:6px;background:var(--fail-bg);
+    border:1px solid var(--fail);color:var(--fail);font-size:12px;font-weight:600;line-height:1.4;
+  }
+  .radio-row{display:flex;gap:8px;flex-wrap:wrap;}
+  .radio-opt{
+    flex:1;min-width:120px;padding:11px 10px;text-align:center;border-radius:6px;border:1.5px solid var(--line);
+    background:#fff;font-size:13px;font-weight:600;cursor:pointer;user-select:none;
+  }
+  .radio-opt.ok.on{background:var(--ok-bg);border-color:var(--ok);color:var(--ok);}
+  .radio-opt.fail.on{background:var(--fail-bg);border-color:var(--fail);color:var(--fail);}
+  .radio-opt.neutral.on{background:#EFE3D6;border-color:var(--orange);color:var(--orange-dark);}
+  .photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .photo-slot{
+    aspect-ratio:1;border:2px dashed var(--line);border-radius:8px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:#fff;position:relative;overflow:hidden;cursor:pointer;
+  }
+  .photo-slot input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+  .photo-slot img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+  .photo-slot .icon{font-size:26px;color:var(--muted);}
+  .photo-slot .lbl{font-size:11px;color:var(--muted);text-align:center;padding:0 6px;margin-top:6px;line-height:1.3;}
+  .photo-slot .tag{
+    position:absolute;bottom:0;left:0;right:0;background:rgba(232,89,12,0.92);color:#fff;
+    font-size:10px;text-transform:uppercase;letter-spacing:0.5px;text-align:center;padding:4px 0;font-weight:600;
+  }
+  .photo-slot .remove-btn{
+    position:absolute;top:6px;right:6px;width:24px;height:24px;border-radius:50%;
+    background:rgba(28,35,33,0.75);color:#fff;border:none;font-size:13px;line-height:1;
+    display:flex;align-items:center;justify-content:center;z-index:2;
+  }
+  footer.save-bar{
+    position:fixed;bottom:0;left:0;right:0;z-index:30;
+    background:var(--paper);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  }
+  .save-btn{
+    width:100%;max-width:520px;margin:0 auto;display:block;
+    background:var(--orange);color:#fff;border:none;border-radius:8px;padding:15px;
+    font-family:'Oswald',sans-serif;font-size:16px;font-weight:600;letter-spacing:1px;text-transform:uppercase;
+  }
+  .save-btn:active{background:var(--orange-dark);}
+  .req-note{font-size:11px;color:var(--fail);text-align:center;margin-top:6px;min-height:14px;}
+  .filter-row{display:flex;align-items:center;gap:10px;margin-top:28px;flex-wrap:wrap;}
+  .filter-toggle{display:flex;border:1px solid var(--line);border-radius:7px;overflow:hidden;}
+  .filter-opt{
+    padding:8px 14px;border:none;background:#fff;color:var(--steel);font-size:13px;font-weight:600;
+  }
+  .filter-opt.on{background:var(--steel);color:#fff;}
+  #filterDateInput{
+    padding:7px 10px;border:1px solid var(--line);border-radius:7px;background:#fff;
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink);
+  }
+  .legend-row{
+    display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:10px;
+    font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.3px;
+  }
+  .legend-dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-left:8px;}
+  .legend-dot:first-child{margin-left:0;}
+  .legend-dot.normal{background:var(--ok);}
+  .legend-dot.issue{background:var(--orange);}
+  .legend-dot.fail{background:var(--fail);}
+  .analysis-toggle-row{margin-top:14px;}
+  .stat-row{margin-bottom:12px;}
+  .stat-row:last-child{margin-bottom:0;}
+  .stat-label-row{display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:5px;}
+  .stat-bar-track{background:var(--paper);border-radius:4px;height:10px;overflow:hidden;border:1px solid var(--line);}
+  .stat-bar-fill{height:100%;border-radius:4px 0 0 4px;transition:width .2s;}
+  .log-header{display:flex;align-items:center;justify-content:space-between;margin:14px 0 10px;}
+  .log-header h2{font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin:0;}
+  .log-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;}
+  .icon-btn{
+    border:1px solid var(--line);background:var(--card);border-radius:6px;padding:7px 10px;
+    font-size:11px;font-weight:600;color:var(--steel);cursor:pointer;
+  }
+  .tag-card{
+    background:var(--card);border:1px solid var(--line);border-radius:8px;margin-bottom:8px;
+    display:flex;overflow:hidden;
+  }
+  .tag-stripe{width:6px;flex-shrink:0;}
+  .tag-stripe.normal{background:var(--ok);}
+  .tag-stripe.issue{background:var(--orange);}
+  .tag-stripe.fail{background:var(--fail);}
+  .tag-body{flex:1;padding:12px 14px;}
+  .tag-top{display:flex;justify-content:space-between;align-items:baseline;}
+  .tag-site{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:16px;}
+  .tag-time{font-size:11px;color:var(--muted);}
+  .tag-meta{font-size:12px;color:var(--muted);margin-top:4px;}
+  .tag-detail{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:13px;display:none;}
+  .tag-detail.open{display:block;}
+  .tag-detail div{margin-bottom:5px;}
+  .tag-detail b{color:var(--steel);}
+  .tag-photos{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;}
+  .tag-photos img{width:60px;height:60px;object-fit:cover;border-radius:4px;border:1px solid var(--line);}
+  .del-btn{margin-top:10px;background:none;border:1px solid var(--fail);color:var(--fail);border-radius:6px;padding:6px 12px;font-size:12px;font-weight:600;}
+  .edit-btn{margin-top:10px;background:none;border:1px solid var(--steel);color:var(--steel);border-radius:6px;padding:6px 12px;font-size:12px;font-weight:600;}
+  .empty{text-align:center;color:var(--muted);font-size:13px;padding:30px 10px;}
+  .storage-note{font-size:11px;color:var(--muted);text-align:center;margin-top:16px;line-height:1.5;}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="title">Site Visit Log</div>
+    <div class="sub">PermaNet field entry</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="tech-row">
+    <label for="techName">Technician</label>
+    <input type="text" id="techName" placeholder="Your name">
+  </div>
+
+  <div class="section-label">Site details</div>
+  <div class="card">
+    <div class="field">
+      <label for="siteId">Site ID *</label>
+      <input type="text" id="siteId" placeholder="e.g. KG.935 - 68">
+      <div class="chips" id="siteZoneChips" style="margin-top:8px;"></div>
+    </div>
+    <div class="field">
+      <label for="ticketId">Ticket ID</label>
+      <input type="text" id="ticketId" placeholder="e.g. TID123">
+      <div class="chips" id="ticketChips" style="margin-top:8px;"></div>
+    </div>
+    <div class="field">
+      <label for="serialNo">Logger serial number *</label>
+      <input type="text" id="serialNo" placeholder="e.g. 307054">
+    </div>
+  </div>
+
+  <div class="section-label">Chamber status *</div>
+  <div class="card">
+    <div class="chips" id="chamberChips"></div>
+    <div class="field" style="margin-top:10px;">
+      <input type="text" id="chamberOther" placeholder="Other / additional detail">
+    </div>
+    <div class="locked-notice" id="chamberLockedNotice" style="display:none;">Chamber can't be opened — only 1 photo is required below, and antenna, force call, serial number and solution are now optional.</div>
+  </div>
+
+  <div class="section-label">Antenna status *</div>
+  <div class="card">
+    <div class="chips" id="antennaChips"></div>
+    <div class="field" style="margin-top:10px;">
+      <input type="text" id="antennaOther" placeholder="Other / additional detail">
+    </div>
+  </div>
+
+  <div class="section-label">Force call *</div>
+  <div class="card">
+    <div class="radio-row" id="forceCallRow">
+      <div class="radio-opt ok" data-val="Pass">Pass</div>
+      <div class="radio-opt fail" data-val="Fail">Fail</div>
+      <div class="radio-opt neutral" data-val="Unable to Perform">Unable to Perform</div>
+    </div>
+    <div class="field" style="margin-top:10px;">
+      <input type="text" id="forceCallDetail" placeholder="Additional detail (e.g. reason for fail)">
+    </div>
+  </div>
+
+  <div class="section-label">Solution *</div>
+  <div class="card">
+    <div class="chips" id="solutionChips"></div>
+    <div class="field" style="margin-top:10px;">
+      <input type="text" id="solutionOther" placeholder="Other / additional detail">
+    </div>
+    <div id="redeployFields" style="display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);">
+      <div class="field">
+        <label for="faultySerial">Faulty logger serial (removed)</label>
+        <input type="text" id="faultySerial" placeholder="e.g. 307054">
+      </div>
+      <div class="field">
+        <label for="replacementSerial">Replacement logger serial (installed)</label>
+        <input type="text" id="replacementSerial" placeholder="e.g. 308211">
+      </div>
+    </div>
+    <div id="officeCauseFields" style="display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);">
+      <div class="field">
+        <label>Cause for bringing back to office</label>
+        <div class="chips" id="officeCauseChips"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Remarks</div>
+  <div class="card">
+    <div class="field">
+      <textarea id="remarks" placeholder="Any additional notes about this visit"></textarea>
+    </div>
+  </div>
+
+  <div class="section-label">Photos *</div>
+  <div class="card">
+    <div class="photo-grid">
+      <label class="photo-slot" id="slot-outsideBefore">
+        <input type="file" accept="image/*" capture="environment" data-slot="outsideBefore">
+        <span class="icon">&#128247;</span>
+        <span class="lbl">Outside chamber (before)</span>
+      </label>
+      <label class="photo-slot" id="slot-inside">
+        <input type="file" accept="image/*" capture="environment" data-slot="inside">
+        <span class="icon">&#128247;</span>
+        <span class="lbl">Inside chamber</span>
+      </label>
+      <label class="photo-slot" id="slot-forceCall">
+        <input type="file" accept="image/*" capture="environment" data-slot="forceCall">
+        <span class="icon">&#128247;</span>
+        <span class="lbl">Force call pass screen</span>
+      </label>
+      <label class="photo-slot" id="slot-outsideAfter">
+        <input type="file" accept="image/*" capture="environment" data-slot="outsideAfter">
+        <span class="icon">&#128247;</span>
+        <span class="lbl">Outside chamber (after)</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="req-note" id="reqNote"></div>
+
+  <div class="filter-row">
+    <div class="filter-toggle">
+      <button class="filter-opt on" id="filterAllBtn" data-mode="all">All dates</button>
+      <button class="filter-opt" id="filterDayBtn" data-mode="date">Pick a day</button>
+    </div>
+    <input type="date" id="filterDateInput" style="display:none;">
+  </div>
+  <div class="legend-row">
+    <span class="legend-dot normal"></span> All pass
+    <span class="legend-dot issue"></span> Chamber can't open
+    <span class="legend-dot fail"></span> Bring back to office
+  </div>
+
+  <div class="analysis-toggle-row">
+    <button class="icon-btn" id="toggleAnalysisBtn">View analysis</button>
+  </div>
+  <div id="analysisPanel" style="display:none;">
+    <div class="section-label">Chamber status breakdown</div>
+    <div class="card" id="chamberAnalysisCard"></div>
+    <div class="section-label">Bring back to office — cause breakdown</div>
+    <div class="card" id="officeAnalysisCard"></div>
+  </div>
+
+  <div class="log-header">
+    <h2 id="logCount">Logged entries (0)</h2>
+    <div class="log-actions">
+      <button class="icon-btn" id="exportCsv">Export Excel</button>
+      <button class="icon-btn" id="exportJson">Backup JSON</button>
+      <button class="icon-btn" id="downloadPhotos">Download photos</button>
+      <button class="icon-btn" id="importJsonBtn">Import backup</button>
+      <input type="file" id="importFileInput" accept=".json,application/json" style="display:none;">
+    </div>
+  </div>
+  <div id="entryList"></div>
+  <div class="storage-note">Entries are saved on this device only. Export regularly so field data isn't lost if the browser cache is cleared.</div>
+
+</div>
+
+<footer class="save-bar">
+  <button class="save-btn" id="saveBtn">Save entry</button>
+  <button id="cancelEditBtn" onclick="cancelEdit()" style="display:none;width:100%;max-width:520px;margin:8px auto 0;display:none;background:none;border:none;color:var(--steel);font-size:13px;font-weight:600;text-decoration:underline;text-align:center;">Cancel edit</button>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
+<script>
+// Storage layer: use Claude's window.storage when available (inside Claude's artifact viewer).
+// Otherwise use IndexedDB, which has a much larger quota (hundreds of MB, not a few MB) —
+// suitable for storing many photo-heavy entries when this page runs standalone in a browser.
+// localStorage is kept only as a last-resort fallback if IndexedDB itself is unavailable.
+const hasNativeStorage = (typeof window.storage !== 'undefined') && window.storage && typeof window.storage.set === 'function';
+const hasIndexedDB = (typeof indexedDB !== 'undefined');
+
+const LS_PREFIX = 'svlog:';
+const legacyLocalStore = {
+  async get(key){
+    try{
+      const raw = localStorage.getItem(LS_PREFIX+key);
+      return raw === null ? null : {key, value: raw};
+    }catch(e){ return null; }
+  },
+  async set(key, value){
+    try{ localStorage.setItem(LS_PREFIX+key, value); return {key, value}; }
+    catch(e){ return null; }
+  },
+  async delete(key){
+    try{ localStorage.removeItem(LS_PREFIX+key); return {key, deleted:true}; }
+    catch(e){ return null; }
+  },
+  async list(prefix){
+    try{
+      const keys = [];
+      const p = LS_PREFIX+(prefix||'');
+      for(let i=0;i<localStorage.length;i++){
+        const k = localStorage.key(i);
+        if(k && k.indexOf(p)===0) keys.push(k.substring(LS_PREFIX.length));
+      }
+      return {keys};
+    }catch(e){ return {keys:[]}; }
+  }
+};
+
+function idbOpen(){
+  return new Promise((resolve, reject)=>{
+    const req = indexedDB.open('svlog_db', 1);
+    req.onupgradeneeded = (e)=>{
+      const db = e.target.result;
+      if(!db.objectStoreNames.contains('kv')) db.createObjectStore('kv', {keyPath:'key'});
+    };
+    req.onsuccess = (e)=> resolve(e.target.result);
+    req.onerror = (e)=> reject(e.target.error);
+  });
+}
+const idbStore = {
+  async get(key){
+    try{
+      const db = await idbOpen();
+      return new Promise((resolve)=>{
+        const req = db.transaction('kv','readonly').objectStore('kv').get(key);
+        req.onsuccess = ()=> resolve(req.result ? {key, value:req.result.value} : null);
+        req.onerror = ()=> resolve(null);
+      });
+    }catch(e){ return null; }
+  },
+  async set(key, value){
+    try{
+      const db = await idbOpen();
+      return new Promise((resolve)=>{
+        const req = db.transaction('kv','readwrite').objectStore('kv').put({key, value});
+        req.onsuccess = ()=> resolve({key, value});
+        req.onerror = ()=> resolve(null);
+      });
+    }catch(e){ return null; }
+  },
+  async delete(key){
+    try{
+      const db = await idbOpen();
+      return new Promise((resolve)=>{
+        const req = db.transaction('kv','readwrite').objectStore('kv').delete(key);
+        req.onsuccess = ()=> resolve({key, deleted:true});
+        req.onerror = ()=> resolve(null);
+      });
+    }catch(e){ return null; }
+  },
+  async list(prefix){
+    try{
+      const db = await idbOpen();
+      return new Promise((resolve)=>{
+        const req = db.transaction('kv','readonly').objectStore('kv').getAllKeys();
+        req.onsuccess = ()=> resolve({keys: req.result.filter(k=> !prefix || String(k).indexOf(prefix)===0)});
+        req.onerror = ()=> resolve({keys:[]});
+      });
+    }catch(e){ return {keys:[]}; }
+  }
+};
+
+const storageApi = hasNativeStorage ? window.storage : (hasIndexedDB ? idbStore : legacyLocalStore);
+
+const CHAMBER_OPTIONS = ["Normal Chamber","Flooded","Heavy Chamber","Block By Obstacles","Chamber Can not open","Buried","Chamber under the tree","Double Chamber","On the middle of the road","Logger Missing"];
+const ANTENNA_OPTIONS = ["GPS & 4G Antenna OK","Antenna Drop","Block by car","Both Antenna Terbalik","Antenna Putus"];
+const SOLUTION_OPTIONS = ["Relocate Anttenna to Outside Chamber","Take Back Office","Redeploy Faulty Logger","No action needed","Unable to Perform"];
+const OFFICE_CAUSE_OPTIONS = ["Can't Read","Force Call Fail","Chamber Flooded","Other"];
+
+let state = { chamber:[], antenna:null, forceCall:null, solution:null, officeCause:null, photos:{} };
+let entries = [];
+
+function buildChips(containerId, options, multi, stateKey){
+  const el = document.getElementById(containerId);
+  options.forEach(opt=>{
+    const chip = document.createElement('div');
+    chip.className = 'chip';
+    chip.textContent = opt;
+    chip.onclick = ()=>{
+      if(multi){
+        const idx = state[stateKey].indexOf(opt);
+        if(idx>-1){ state[stateKey].splice(idx,1); chip.classList.remove('on'); }
+        else { state[stateKey].push(opt); chip.classList.add('on'); }
+      } else {
+        state[stateKey] = (state[stateKey]===opt) ? null : opt;
+        [...el.children].forEach(c=>c.classList.remove('on'));
+        if(state[stateKey]) chip.classList.add('on');
+      }
+    };
+    el.appendChild(chip);
+  });
+}
+buildChips('chamberChips', CHAMBER_OPTIONS, true, 'chamber');
+document.querySelectorAll('#chamberChips .chip').forEach(chip=>{
+  chip.addEventListener('click', updateChamberLockedNotice);
+});
+function isChamberLocked(){
+  return state.chamber.includes('Chamber Can not open');
+}
+function updateChamberLockedNotice(){
+  document.getElementById('chamberLockedNotice').style.display = isChamberLocked() ? 'block' : 'none';
+}
+buildChips('antennaChips', ANTENNA_OPTIONS, false, 'antenna');
+buildChips('solutionChips', SOLUTION_OPTIONS, false, 'solution');
+buildChips('officeCauseChips', OFFICE_CAUSE_OPTIONS, false, 'officeCause');
+document.querySelectorAll('#solutionChips .chip').forEach(chip=>{
+  chip.addEventListener('click', toggleRedeployFields);
+});
+function toggleRedeployFields(){
+  document.getElementById('redeployFields').style.display =
+    (state.solution === 'Redeploy Faulty Logger') ? 'block' : 'none';
+  document.getElementById('officeCauseFields').style.display =
+    (state.solution === 'Take Back Office') ? 'block' : 'none';
+}
+
+document.querySelectorAll('#forceCallRow .radio-opt').forEach(opt=>{
+  opt.onclick = ()=>{
+    document.querySelectorAll('#forceCallRow .radio-opt').forEach(o=>o.classList.remove('on'));
+    state.forceCall = opt.getAttribute('data-val');
+    opt.classList.add('on');
+  };
+});
+
+function compressImage(img, targetChars){
+  let width = Math.min(img.width, 1000);
+  let quality = 0.6;
+  function render(w, q){
+    const scale = w/img.width;
+    const canvas = document.createElement('canvas');
+    canvas.width = Math.round(w);
+    canvas.height = Math.round(img.height*scale);
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img,0,0,canvas.width,canvas.height);
+    return canvas.toDataURL('image/jpeg', q);
+  }
+  let dataUrl = render(width, quality);
+  let tries = 0;
+  while(dataUrl.length > targetChars && tries < 8){
+    if(quality > 0.35){ quality = Math.round((quality-0.1)*100)/100; }
+    else { width = Math.round(width*0.8); }
+    dataUrl = render(width, quality);
+    tries++;
+  }
+  return dataUrl;
+}
+
+document.querySelectorAll('.photo-slot input').forEach(input=>{
+  input.addEventListener('change', function(e){
+    const slot = this.getAttribute('data-slot');
+    const file = e.target.files[0];
+    if(!file) return;
+    const reader = new FileReader();
+    reader.onload = function(ev){
+      const img = new Image();
+      img.onload = function(){
+        // target ~280KB per photo (base64 chars) so 4 photos safely fit well under the 5MB per-entry limit
+        const dataUrl = compressImage(img, 280000);
+        state.photos[slot] = dataUrl;
+        renderSlot(slot);
+      };
+      img.src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+});
+
+function renderSlot(slot){
+  const el = document.getElementById('slot-'+slot);
+  const existing = el.querySelector('img');
+  if(existing) existing.remove();
+  const existingTag = el.querySelector('.tag');
+  if(existingTag) existingTag.remove();
+  const existingRemove = el.querySelector('.remove-btn');
+  if(existingRemove) existingRemove.remove();
+  if(state.photos[slot]){
+    const img = document.createElement('img');
+    img.src = state.photos[slot];
+    el.appendChild(img);
+    const tag = document.createElement('div');
+    tag.className = 'tag';
+    tag.textContent = 'Captured — tap to retake';
+    el.appendChild(tag);
+    const removeBtn = document.createElement('button');
+    removeBtn.type = 'button';
+    removeBtn.className = 'remove-btn';
+    removeBtn.textContent = '✕';
+    removeBtn.onclick = function(ev){
+      ev.preventDefault();
+      ev.stopPropagation();
+      delete state.photos[slot];
+      const fileInput = el.querySelector('input[type=file]');
+      if(fileInput) fileInput.value = '';
+      renderSlot(slot);
+    };
+    el.appendChild(removeBtn);
+  }
+}
+
+function zoneOf(siteId){
+  const idx = siteId.lastIndexOf('-');
+  if(idx === -1) return siteId.trim();
+  return siteId.substring(0, idx).trim();
+}
+
+function renderRecentChips(){
+  const zoneWrap = document.getElementById('siteZoneChips');
+  const ticketWrap = document.getElementById('ticketChips');
+  zoneWrap.innerHTML = '';
+  ticketWrap.innerHTML = '';
+  if(entries.length===0) return;
+
+  const seenZones = [];
+  entries.forEach(e=>{
+    if(!e.siteId) return;
+    const z = zoneOf(e.siteId);
+    if(z && !seenZones.includes(z)) seenZones.push(z);
+  });
+  if(seenZones.length){
+    const hint = document.createElement('div');
+    hint.className = 'chip-hint';
+    hint.textContent = 'Recent zones — tap, then add the site number';
+    zoneWrap.appendChild(hint);
+    seenZones.slice(0,6).forEach(z=>{
+      const chip = document.createElement('div');
+      chip.className = 'chip sm';
+      chip.textContent = z;
+      chip.onclick = ()=>{
+        const input = document.getElementById('siteId');
+        input.value = z + ' - ';
+        input.focus();
+        input.setSelectionRange(input.value.length, input.value.length);
+      };
+      zoneWrap.appendChild(chip);
+    });
+  }
+
+  const seenTickets = [];
+  entries.forEach(e=>{
+    if(e.ticketId && !seenTickets.includes(e.ticketId)) seenTickets.push(e.ticketId);
+  });
+  if(seenTickets.length){
+    const hint = document.createElement('div');
+    hint.className = 'chip-hint';
+    hint.textContent = 'Recent ticket IDs';
+    ticketWrap.appendChild(hint);
+    seenTickets.slice(0,6).forEach(t=>{
+      const chip = document.createElement('div');
+      chip.className = 'chip sm';
+      chip.textContent = t;
+      chip.onclick = ()=>{
+        const input = document.getElementById('ticketId');
+        input.value = t;
+        input.focus();
+      };
+      ticketWrap.appendChild(chip);
+    });
+  }
+}
+
+async function loadEntries(){
+  entries = [];
+  try{
+    // Migrate from old single-blob storage if it exists
+    let old = null;
+    try{ old = await storageApi.get('site_entries', false); }catch(e){ old = null; }
+    if(old && old.value){
+      const oldArr = JSON.parse(old.value);
+      for(const e of oldArr){
+        try{ await storageApi.set('entry:'+e.id, JSON.stringify(e), false); }catch(err){ /* keep in memory even if it can't be split-saved */ }
+      }
+      try{ await storageApi.delete('site_entries', false); }catch(e){}
+      entries = oldArr;
+    } else {
+      const listRes = await storageApi.list('entry:', false);
+      const keys = (listRes && listRes.keys) || [];
+      for(const k of keys){
+        try{
+          const res = await storageApi.get(k, false);
+          if(res && res.value) entries.push(JSON.parse(res.value));
+        }catch(e){}
+      }
+    }
+  }catch(e){ /* leave entries as whatever was collected */ }
+  entries.sort((a,b)=>b.id-a.id);
+  for(const e of entries){
+    if(!e.dateKey){
+      e.dateKey = getDateKey(e);
+      try{ await storageApi.set('entry:'+e.id, JSON.stringify(e), false); }catch(err){ /* fixed in memory at least */ }
+    }
+  }
+  try{
+    const tech = await storageApi.get('tech_name', false);
+    if(tech && tech.value){
+      document.getElementById('techName').value = tech.value;
+    } else if(storageApi !== legacyLocalStore){
+      // pick up a name saved during an earlier attempt that used the plain localStorage fallback
+      try{
+        const raw = localStorage.getItem(LS_PREFIX+'tech_name');
+        if(raw){
+          document.getElementById('techName').value = raw;
+          await storageApi.set('tech_name', raw, false);
+        }
+      }catch(e){}
+    }
+  }catch(e){}
+  renderEntries();
+  renderRecentChips();
+}
+
+async function saveEntry(entry){
+  try{
+    const res = await storageApi.set('entry:'+entry.id, JSON.stringify(entry), false);
+    if(!res) return {ok:false, error:'Storage returned no result.'};
+    return {ok:true};
+  }catch(e){
+    return {ok:false, error: (e && e.message) ? e.message : String(e)};
+  }
+}
+
+async function deleteEntryFromStorage(id){
+  try{ await storageApi.delete('entry:'+id, false); }catch(e){}
+}
+
+document.getElementById('techName').addEventListener('change', async function(){
+  try{ await storageApi.set('tech_name', this.value, false); }catch(e){}
+});
+
+function statusClass(entry){
+  if(entry.solution === 'Take Back Office') return 'fail';
+  if((entry.chamber||[]).includes('Chamber Can not open')) return 'issue';
+  return 'normal';
+}
+
+let filterMode = 'all'; // 'all' or 'date'
+let filterDate = null;
+
+document.getElementById('filterAllBtn').onclick = function(){
+  filterMode = 'all';
+  document.getElementById('filterAllBtn').classList.add('on');
+  document.getElementById('filterDayBtn').classList.remove('on');
+  document.getElementById('filterDateInput').style.display = 'none';
+  renderEntries();
+};
+document.getElementById('filterDayBtn').onclick = function(){
+  filterMode = 'date';
+  if(!filterDate) filterDate = todayStr();
+  document.getElementById('filterDateInput').value = filterDate;
+  document.getElementById('filterDateInput').style.display = 'inline-block';
+  document.getElementById('filterDayBtn').classList.add('on');
+  document.getElementById('filterAllBtn').classList.remove('on');
+  renderEntries();
+};
+document.getElementById('filterDateInput').addEventListener('change', function(){
+  filterDate = this.value || todayStr();
+  renderEntries();
+});
+
+let editingId = null;
+const PHOTO_SLOTS = ['outsideBefore','inside','forceCall','outsideAfter'];
+
+function validateForm(){
+  const missing = [];
+  if(!document.getElementById('siteId').value.trim()) missing.push('Site ID');
+  if(state.chamber.length===0) missing.push('Chamber status');
+
+  if(isChamberLocked()){
+    // Chamber can't be opened: nothing inside it can be checked, so only require
+    // Site ID, Chamber status (already required above), and at least 1 photo.
+    const hasAnyPhoto = PHOTO_SLOTS.some(slot => state.photos[slot]);
+    if(!hasAnyPhoto) missing.push('At least 1 photo');
+    return missing;
+  }
+
+  if(!document.getElementById('serialNo').value.trim()) missing.push('Serial number');
+  if(!state.antenna) missing.push('Antenna status');
+  if(!state.forceCall) missing.push('Force call');
+  if(!state.solution) missing.push('Solution');
+  if(state.solution === 'Redeploy Faulty Logger'){
+    if(!document.getElementById('faultySerial').value.trim()) missing.push('Faulty logger serial');
+    if(!document.getElementById('replacementSerial').value.trim()) missing.push('Replacement logger serial');
+  }
+  if(state.solution === 'Take Back Office' && !state.officeCause){
+    missing.push('Cause for bringing back to office');
+  }
+  PHOTO_SLOTS.forEach(slot=>{
+    if(!state.photos[slot]) missing.push('Photo: ' + document.querySelector('#slot-'+slot+' .lbl').textContent);
+  });
+  return missing;
+}
+
+let isSaving = false;
+document.getElementById('saveBtn').onclick = async function(){
+  if(isSaving) return; // ignore a second tap while the previous save is still writing
+  const note = document.getElementById('reqNote');
+  const missing = validateForm();
+  if(missing.length){
+    note.textContent = 'Please fill in: ' + missing.join(', ');
+    return;
+  }
+  note.textContent = '';
+  isSaving = true;
+  const btn = this;
+  const originalLabel = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Saving…';
+
+  const siteId = document.getElementById('siteId').value.trim();
+  const isEdit = editingId !== null;
+  const existing = isEdit ? entries.find(x=>x.id===editingId) : null;
+
+  const entry = {
+    id: isEdit ? editingId : Date.now(),
+    timestamp: isEdit && existing ? existing.timestamp : new Date().toLocaleString(),
+    dateKey: isEdit && existing ? existing.dateKey : todayStr(),
+    updatedAt: isEdit ? new Date().toLocaleString() : undefined,
+    technician: document.getElementById('techName').value.trim(),
+    siteId: siteId,
+    ticketId: document.getElementById('ticketId').value.trim(),
+    serialNo: document.getElementById('serialNo').value.trim(),
+    chamber: [...state.chamber],
+    chamberOther: document.getElementById('chamberOther').value.trim(),
+    antenna: state.antenna || '',
+    antennaOther: document.getElementById('antennaOther').value.trim(),
+    forceCall: state.forceCall || '',
+    forceCallDetail: document.getElementById('forceCallDetail').value.trim(),
+    solution: state.solution || '',
+    solutionOther: document.getElementById('solutionOther').value.trim(),
+    faultySerial: document.getElementById('faultySerial').value.trim(),
+    replacementSerial: document.getElementById('replacementSerial').value.trim(),
+    officeCause: state.officeCause || '',
+    remarks: document.getElementById('remarks').value.trim(),
+    photos: {...state.photos}
+  };
+
+  try{
+    const result = await saveEntry(entry);
+    if(!result.ok){
+      note.textContent = 'Could not save (' + result.error + '). Try removing a photo, or retake one, then save again.';
+      return;
+    }
+    if(isEdit){
+      const idx = entries.findIndex(x=>x.id===editingId);
+      if(idx > -1) entries[idx] = entry; else entries.unshift(entry);
+    } else {
+      entries.unshift(entry);
+    }
+    resetForm();
+    renderEntries();
+    renderRecentChips();
+  } finally {
+    isSaving = false;
+    btn.disabled = false;
+    // resetForm() already restores the correct label ('Save entry'); only need to
+    // restore it here if we returned early above (validation/save failure) and resetForm didn't run.
+    if(btn.textContent === 'Saving…') btn.textContent = originalLabel;
+  }
+  window.scrollTo({top:0, behavior:'smooth'});
+};
+
+function startEdit(id){
+  const entry = entries.find(x=>x.id===id);
+  if(!entry) return;
+  editingId = id;
+
+  document.getElementById('siteId').value = entry.siteId || '';
+  document.getElementById('ticketId').value = entry.ticketId || '';
+  document.getElementById('serialNo').value = entry.serialNo || '';
+  document.getElementById('chamberOther').value = entry.chamberOther || '';
+  document.getElementById('antennaOther').value = entry.antennaOther || '';
+  document.getElementById('forceCallDetail').value = entry.forceCallDetail || '';
+  document.getElementById('solutionOther').value = entry.solutionOther || '';
+  document.getElementById('faultySerial').value = entry.faultySerial || '';
+  document.getElementById('replacementSerial').value = entry.replacementSerial || '';
+  document.getElementById('remarks').value = entry.remarks || '';
+
+  state = {
+    chamber: [...(entry.chamber||[])],
+    antenna: entry.antenna || null,
+    forceCall: entry.forceCall || null,
+    solution: entry.solution || null,
+    officeCause: entry.officeCause || null,
+    photos: {...(entry.photos||{})}
+  };
+
+  document.querySelectorAll('#chamberChips .chip').forEach(c=>{
+    c.classList.toggle('on', state.chamber.includes(c.textContent));
+  });
+  document.querySelectorAll('#antennaChips .chip').forEach(c=>{
+    c.classList.toggle('on', c.textContent === state.antenna);
+  });
+  document.querySelectorAll('#officeCauseChips .chip').forEach(c=>{
+    c.classList.toggle('on', c.textContent === state.officeCause);
+  });
+  document.querySelectorAll('#solutionChips .chip').forEach(c=>{
+    c.classList.toggle('on', c.textContent === state.solution);
+  });
+  document.querySelectorAll('#forceCallRow .radio-opt').forEach(o=>{
+    o.classList.toggle('on', o.getAttribute('data-val') === state.forceCall);
+  });
+  toggleRedeployFields();
+  updateChamberLockedNotice();
+  PHOTO_SLOTS.forEach(renderSlot);
+
+  document.getElementById('saveBtn').textContent = 'Update entry';
+  document.getElementById('cancelEditBtn').style.display = 'block';
+  document.getElementById('reqNote').textContent = '';
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function cancelEdit(){
+  resetForm();
+}
+
+function resetForm(){
+  document.getElementById('siteId').value = '';
+  document.getElementById('ticketId').value = '';
+  document.getElementById('serialNo').value = '';
+  document.getElementById('chamberOther').value = '';
+  document.getElementById('antennaOther').value = '';
+  document.getElementById('forceCallDetail').value = '';
+  document.getElementById('solutionOther').value = '';
+  document.getElementById('faultySerial').value = '';
+  document.getElementById('replacementSerial').value = '';
+  document.getElementById('remarks').value = '';
+  state = { chamber:[], antenna:null, forceCall:null, solution:null, officeCause:null, photos:{} };
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  document.querySelectorAll('#forceCallRow .radio-opt').forEach(o=>o.classList.remove('on'));
+  document.getElementById('redeployFields').style.display = 'none';
+  document.getElementById('officeCauseFields').style.display = 'none';
+  document.getElementById('chamberLockedNotice').style.display = 'none';
+  ['outsideBefore','inside','forceCall','outsideAfter'].forEach(renderSlot);
+  document.querySelectorAll('.photo-slot input').forEach(i=>i.value='');
+  document.getElementById('reqNote').textContent = '';
+  editingId = null;
+  document.getElementById('saveBtn').textContent = 'Save entry';
+  document.getElementById('cancelEditBtn').style.display = 'none';
+}
+
+const CHAMBER_ANALYSIS_ORDER = ['All pass','Force call fail','Block by obstacles',"Can't open",'Others'];
+const CHAMBER_CATEGORY_COLOR = {
+  'All pass': 'var(--ok)',
+  'Force call fail': 'var(--fail)',
+  'Block by obstacles': 'var(--orange)',
+  "Can't open": '#7A2E2E',
+  'Others': 'var(--steel)'
+};
+function chamberCategory(e){
+  const chamber = e.chamber || [];
+  if(chamber.includes('Chamber Can not open')) return "Can't open";
+  if(e.forceCall === 'Fail') return 'Force call fail';
+  if(chamber.includes('Block By Obstacles')) return 'Block by obstacles';
+  if(chamber.length && !(chamber.length===1 && chamber[0]==='Normal Chamber')) return 'Others';
+  return 'All pass';
+}
+
+const OFFICE_ANALYSIS_ORDER = ["Can't read",'Force call fail','Chamber flooded','Other','Unspecified'];
+const OFFICE_CATEGORY_COLOR = {
+  "Can't read": 'var(--steel)',
+  'Force call fail': 'var(--fail)',
+  'Chamber flooded': '#2F6C8F',
+  'Other': 'var(--orange)',
+  'Unspecified': 'var(--muted)'
+};
+function officeCauseCategory(e){
+  const c = e.officeCause;
+  if(c === "Can't Read") return "Can't read";
+  if(c === 'Force Call Fail') return 'Force call fail';
+  if(c === 'Chamber Flooded') return 'Chamber flooded';
+  if(c === 'Other') return 'Other';
+  return 'Unspecified';
+}
+
+function renderStatRows(containerId, order, counts, total, colorMap, defaultColor){
+  const el = document.getElementById(containerId);
+  if(total === 0){
+    el.innerHTML = '<div class="empty" style="padding:6px 0;">No data for this selection.</div>';
+    return;
+  }
+  el.innerHTML = order.map(label=>{
+    const count = counts[label] || 0;
+    const pct = Math.round((count/total)*100);
+    const color = (colorMap && colorMap[label]) || defaultColor;
+    return '<div class="stat-row">'+
+      '<div class="stat-label-row"><span>'+escapeHtml(label)+'</span><span>'+count+' ('+pct+'%)</span></div>'+
+      '<div class="stat-bar-track"><div class="stat-bar-fill" style="width:'+pct+'%;background:'+color+';"></div></div>'+
+    '</div>';
+  }).join('');
+}
+
+function renderAnalysis(){
+  const scoped = getFilteredEntries();
+
+  const chamberCounts = {};
+  scoped.forEach(e=>{
+    const cat = chamberCategory(e);
+    chamberCounts[cat] = (chamberCounts[cat]||0)+1;
+  });
+  renderStatRows('chamberAnalysisCard', CHAMBER_ANALYSIS_ORDER, chamberCounts, scoped.length, CHAMBER_CATEGORY_COLOR, 'var(--steel)');
+
+  const officeEntries = scoped.filter(e=>e.solution==='Take Back Office');
+  const officeCounts = {};
+  officeEntries.forEach(e=>{
+    const cat = officeCauseCategory(e);
+    officeCounts[cat] = (officeCounts[cat]||0)+1;
+  });
+  renderStatRows('officeAnalysisCard', OFFICE_ANALYSIS_ORDER, officeCounts, officeEntries.length, OFFICE_CATEGORY_COLOR, 'var(--orange)');
+}
+
+document.getElementById('toggleAnalysisBtn').onclick = function(){
+  const panel = document.getElementById('analysisPanel');
+  const show = panel.style.display === 'none';
+  panel.style.display = show ? 'block' : 'none';
+  this.textContent = show ? 'Hide analysis' : 'View analysis';
+};
+
+function getFilteredEntries(){
+  if(filterMode === 'date'){
+    return entries.filter(e => getDateKey(e) === filterDate);
+  }
+  return entries;
+}
+
+function renderEntries(){
+  renderAnalysis();
+  const filtered = getFilteredEntries();
+  document.getElementById('logCount').textContent = filterMode === 'date'
+    ? 'Logged entries — '+filterDate+' ('+filtered.length+')'
+    : 'Logged entries ('+filtered.length+')';
+  const list = document.getElementById('entryList');
+  list.innerHTML = '';
+  if(filtered.length===0){
+    list.innerHTML = filterMode === 'date'
+      ? '<div class="empty">No entries for this date.</div>'
+      : '<div class="empty">No entries yet. Fill in the form above and tap Save entry.</div>';
+    return;
+  }
+  filtered.forEach(e=>{
+    const card = document.createElement('div');
+    card.className = 'tag-card';
+    const cls = statusClass(e);
+    const photoCount = Object.keys(e.photos||{}).length;
+    card.innerHTML =
+      '<div class="tag-stripe '+cls+'"></div>'+
+      '<div class="tag-body">'+
+        '<div class="tag-top"><span class="tag-site">'+escapeHtml(e.siteId)+'</span><span class="tag-time">'+escapeHtml(e.timestamp)+(e.updatedAt?' &middot; edited':'')+'</span></div>'+
+        '<div class="tag-meta">'+escapeHtml(e.technician||'—')+' &middot; '+photoCount+' photo(s)</div>'+
+        '<div class="tag-detail">'+
+          '<div><b>Ticket:</b> '+escapeHtml(e.ticketId||'—')+'</div>'+
+          '<div><b>Serial:</b> '+escapeHtml(e.serialNo||'—')+'</div>'+
+          '<div><b>Chamber:</b> '+escapeHtml([e.chamber.join(', '),e.chamberOther].filter(Boolean).join(' — ')||'—')+'</div>'+
+          '<div><b>Antenna:</b> '+escapeHtml([e.antenna,e.antennaOther].filter(Boolean).join(' — ')||'—')+'</div>'+
+          '<div><b>Force call:</b> '+escapeHtml([e.forceCall,e.forceCallDetail].filter(Boolean).join(' — ')||'—')+'</div>'+
+          '<div><b>Solution:</b> '+escapeHtml([e.solution,e.solutionOther].filter(Boolean).join(' — ')||'—')+'</div>'+
+          (e.solution==='Redeploy Faulty Logger' ? '<div><b>Faulty logger removed:</b> '+escapeHtml(e.faultySerial||'—')+'</div>'+'<div><b>Replacement logger installed:</b> '+escapeHtml(e.replacementSerial||'—')+'</div>' : '')+
+          (e.solution==='Take Back Office' ? '<div><b>Cause:</b> '+escapeHtml(e.officeCause||'—')+'</div>' : '')+
+          '<div><b>Remarks:</b> '+escapeHtml(e.remarks||'—')+'</div>'+
+          '<div class="tag-photos"></div>'+
+          '<div style="display:flex;gap:8px;margin-top:10px;">'+
+            '<button class="edit-btn">Edit entry</button>'+
+            '<button class="del-btn" style="margin-top:0;">Delete entry</button>'+
+          '</div>'+
+        '</div>'+
+      '</div>';
+    const top = card.querySelector('.tag-top');
+    const detail = card.querySelector('.tag-detail');
+    top.style.cursor='pointer';
+    top.onclick = ()=> detail.classList.toggle('open');
+    const photosWrap = card.querySelector('.tag-photos');
+    Object.values(e.photos||{}).forEach(src=>{
+      const img = document.createElement('img');
+      img.src = src;
+      photosWrap.appendChild(img);
+    });
+    card.querySelector('.edit-btn').onclick = (ev)=>{
+      ev.stopPropagation();
+      startEdit(e.id);
+    };
+    card.querySelector('.del-btn').onclick = async (ev)=>{
+      ev.stopPropagation();
+      if(confirm('Delete this entry?')){
+        entries = entries.filter(x=>x.id!==e.id);
+        await deleteEntryFromStorage(e.id);
+        renderEntries();
+        renderRecentChips();
+      }
+    };
+    list.appendChild(card);
+  });
+}
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function downloadFile(filename, content, type){
+  const blob = new Blob([content], {type});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function formatDateKey(d){
+  const y = d.getFullYear();
+  const m = String(d.getMonth()+1).padStart(2,'0');
+  const day = String(d.getDate()).padStart(2,'0');
+  return y+'-'+m+'-'+day;
+}
+function todayStr(){
+  return formatDateKey(new Date());
+}
+function getDateKey(entry){
+  if(entry.dateKey) return entry.dateKey;
+  // entry.id is Date.now() at creation — a precise, locale-independent timestamp.
+  // The old display timestamp (toLocaleString()) is ambiguous across locales (DD/MM vs MM/DD)
+  // and was the cause of past-day filtering failing for entries saved before dateKey existed.
+  if(entry.id){
+    const fromId = new Date(Number(entry.id));
+    if(!isNaN(fromId.getTime())) return formatDateKey(fromId);
+  }
+  const parsed = new Date(entry.timestamp);
+  return isNaN(parsed.getTime()) ? 'unknown' : formatDateKey(parsed);
+}
+
+const SHEET_COLUMNS = [
+  {header:'Date / Time', key:'timestamp', width:19},
+  {header:'Technician', key:'technician', width:15},
+  {header:'Site ID', key:'siteId', width:18},
+  {header:'Ticket ID', key:'ticketId', width:13},
+  {header:'Serial No.', key:'serialNo', width:13},
+  {header:'Chamber Status', key:'chamber', width:30},
+  {header:'Chamber Detail', key:'chamberOther', width:20},
+  {header:'Antenna Status', key:'antenna', width:22},
+  {header:'Antenna Detail', key:'antennaOther', width:20},
+  {header:'Force Call', key:'forceCall', width:11},
+  {header:'Force Call Detail', key:'forceCallDetail', width:22},
+  {header:'Solution', key:'solution', width:26},
+  {header:'Solution Detail', key:'solutionOther', width:20},
+  {header:'Faulty Logger Removed', key:'faultySerial', width:19},
+  {header:'Replacement Logger', key:'replacementSerial', width:19},
+  {header:'Bring Back Cause', key:'officeCause', width:18},
+  {header:'Remarks', key:'remarks', width:32}
+];
+const HEADER_FILL = 'FFE8590C';
+const STRIPE_FILL = 'FFF2EFE8';
+const BORDER = {style:'thin', color:{argb:'FFD3D3CC'}};
+
+function fillSheet(sheet, rows){
+  sheet.columns = SHEET_COLUMNS;
+  sheet.views = [{state:'frozen', ySplit:1}];
+
+  const header = sheet.getRow(1);
+  header.height = 22;
+  header.eachCell(cell=>{
+    cell.font = {bold:true, color:{argb:'FFFFFFFF'}, size:11};
+    cell.fill = {type:'pattern', pattern:'solid', fgColor:{argb:HEADER_FILL}};
+    cell.alignment = {vertical:'middle', horizontal:'center', wrapText:true};
+    cell.border = {top:BORDER, left:BORDER, bottom:BORDER, right:BORDER};
+  });
+
+  rows.forEach((e, i)=>{
+    const row = sheet.addRow({
+      timestamp: e.timestamp || '',
+      technician: e.technician || '',
+      siteId: e.siteId || '',
+      ticketId: e.ticketId || '',
+      serialNo: e.serialNo || '',
+      chamber: (e.chamber||[]).join(', '),
+      chamberOther: e.chamberOther || '',
+      antenna: e.antenna || '',
+      antennaOther: e.antennaOther || '',
+      forceCall: e.forceCall || '',
+      forceCallDetail: e.forceCallDetail || '',
+      solution: e.solution || '',
+      solutionOther: e.solutionOther || '',
+      faultySerial: e.faultySerial || '',
+      replacementSerial: e.replacementSerial || '',
+      officeCause: e.officeCause || '',
+      remarks: e.remarks || ''
+    });
+    row.eachCell(cell=>{
+      cell.alignment = {vertical:'middle', wrapText:true};
+      cell.border = {top:BORDER, left:BORDER, bottom:BORDER, right:BORDER};
+      if(i % 2 === 1){
+        cell.fill = {type:'pattern', pattern:'solid', fgColor:{argb:STRIPE_FILL}};
+      }
+    });
+    const fcCell = row.getCell('forceCall');
+    if(e.forceCall === 'Fail'){ fcCell.font = {color:{argb:'FFB3261E'}, bold:true}; }
+    else if(e.forceCall === 'Pass'){ fcCell.font = {color:{argb:'FF2F6F4E'}, bold:true}; }
+  });
+
+  if(rows.length){
+    sheet.autoFilter = {from:'A1', to: String.fromCharCode(64+SHEET_COLUMNS.length)+'1'};
+  }
+}
+
+document.getElementById('exportCsv').onclick = async function(){
+  const scoped = getFilteredEntries();
+  if(scoped.length===0){ alert('No entries to export for the current filter.'); return; }
+  const btn = this;
+  btn.textContent = 'Building…';
+  btn.disabled = true;
+  try{
+    const wb = new ExcelJS.Workbook();
+    wb.creator = 'PermaNet Site Visit Log';
+    wb.created = new Date();
+
+    const allSheet = wb.addWorksheet('All Entries');
+    fillSheet(allSheet, scoped);
+
+    const backToOffice = scoped.filter(e => e.solution === 'Take Back Office');
+    const officeSheet = wb.addWorksheet('Bring Back to Office');
+    fillSheet(officeSheet, backToOffice);
+
+    const buf = await wb.xlsx.writeBuffer();
+    const blob = new Blob([buf], {type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const label = filterMode === 'date' ? filterDate : todayStr();
+    a.href = url; a.download = 'PermaNet Site Visit. '+label+'.xlsx';
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }catch(err){
+    alert('Could not build the Excel file. Try Backup JSON instead and send it over.');
+  }
+  btn.textContent = 'Export Excel';
+  btn.disabled = false;
+};
+
+document.getElementById('exportJson').onclick = function(){
+  if(entries.length===0){ alert('No entries to export yet.'); return; }
+  downloadFile('PermaNet Site Visit Backup. '+todayStr()+'.json', JSON.stringify(entries,null,2), 'application/json');
+};
+
+document.getElementById('importJsonBtn').onclick = function(){
+  document.getElementById('importFileInput').click();
+};
+
+document.getElementById('importFileInput').addEventListener('change', function(e){
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = async function(ev){
+    let imported;
+    try{
+      imported = JSON.parse(ev.target.result);
+      if(!Array.isArray(imported)) throw new Error('not an array');
+    }catch(err){
+      alert('That file doesn\'t look like a valid backup JSON.');
+      e.target.value = '';
+      return;
+    }
+
+    const existingIds = new Set(entries.map(x=>x.id));
+    const newOnes = imported.filter(x => x && x.id && !existingIds.has(x.id));
+    const skipped = imported.length - newOnes.length;
+
+    if(newOnes.length === 0){
+      alert('Nothing new to import — all '+imported.length+' entries in this backup are already in your log.');
+      e.target.value = '';
+      return;
+    }
+
+    const proceed = confirm(
+      'This backup has '+imported.length+' entries.\n'+
+      newOnes.length+' are new and will be added.'+
+      (skipped > 0 ? '\n'+skipped+' already exist in your log and will be skipped.' : '')+
+      '\n\nImport now?'
+    );
+    if(!proceed){ e.target.value = ''; return; }
+
+    let failCount = 0;
+    for(const entry of newOnes){
+      const result = await saveEntry(entry);
+      if(result.ok){
+        entries.push(entry);
+      } else {
+        failCount++;
+      }
+    }
+    entries.sort((a,b)=>b.id-a.id);
+    renderEntries();
+    renderRecentChips();
+    e.target.value = '';
+    if(failCount > 0){
+      alert('Imported '+(newOnes.length-failCount)+' entries. '+failCount+' could not be saved (possibly too large).');
+    } else {
+      alert('Imported '+newOnes.length+' new entries.');
+    }
+  };
+  reader.readAsText(file);
+});
+
+function safeName(s){
+  return String(s||'unknown').replace(/[^a-z0-9_\-]+/gi,'_');
+}
+
+document.getElementById('downloadPhotos').onclick = async function(){
+  const btn = this;
+  const withPhotos = getFilteredEntries().filter(e => e.photos && Object.keys(e.photos).length>0);
+  if(withPhotos.length===0){ alert('No photos saved for the current filter.'); return; }
+  btn.textContent = 'Zipping…';
+  btn.disabled = true;
+  try{
+    const zip = new JSZip();
+    withPhotos.forEach(e=>{
+      const folder = zip.folder(safeName(e.siteId));
+      Object.entries(e.photos).forEach(([slot, dataUrl])=>{
+        const base64 = dataUrl.split(',')[1];
+        if(!base64) return;
+        const fname = safeName(slot)+'_'+e.id+'.jpg';
+        folder.file(fname, base64, {base64:true});
+      });
+    });
+    const blob = await zip.generateAsync({type:'blob'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const label = filterMode === 'date' ? filterDate : todayStr();
+    a.href = url; a.download = 'PermaNet Site Visit Photos. '+label+'.zip';
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }catch(err){
+    alert('Could not build the zip file. Try exporting Backup JSON instead and send it over for extraction.');
+  }
+  btn.textContent = 'Download photos';
+  btn.disabled = false;
+};
+
+loadEntries();
+</script>
+
+</body>
+</html>
